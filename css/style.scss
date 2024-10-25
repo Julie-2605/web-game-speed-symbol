@@ -112,29 +112,38 @@ main {
         align-items: center;
         gap: 30px;
 
-        .container-card {
-            width: 400px;
-            height: 500px;
+        .section-game {
+            .container-card {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 400px;
+                height: 500px;
+    
+                border-radius: 20px;
+    
+                background-color: variables.$white;
+                box-shadow: variables.$box-shadow 4px 4px 4px 0;
+    
+                transition: 0.3s;
 
-            border-radius: 20px;
-
-            background-color: variables.$white;
-            box-shadow: variables.$box-shadow 4px 4px 4px 0;
-
-            transition: 2s;
-        }
-
-        .container-card:hover {
-            transform: rotate(5deg);
-        }
-
-        .container-button {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            justify-content: space-between;
-
-            width: 100%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
+            }
+    
+            .container-button {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                justify-content: space-between;
+    
+                width: 100%;
+            }
         }
     }
 
