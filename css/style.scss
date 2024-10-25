@@ -1,0 +1,141 @@
+@use 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: variables.$font;
+    font-weight: normal;
+    font-size: 1em;
+    color: variables.$black;
+    list-style: none;
+    text-decoration: none;
+}
+
+/*FONT*/
+body {
+    font-size: 25px;
+    background-color: variables.$second-color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+/*BUTTON*/
+
+button {
+    width: 100%;
+    padding: 10px 10px;
+
+    color: variables.$white;
+    background-color: variables.$main-color;
+    box-shadow: variables.$box-shadow 4px 4px 4px 0;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: scale(0.97);
+    background-color: variables.$main-color-dark;
+}
+
+// .btn-5 {
+//     border: 0 solid;
+//     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+//     outline: 1px solid;
+//     outline-color: rgba(255, 255, 255, .5);
+//     outline-offset: 0px;
+//     text-shadow: none;
+//     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+//   } 
+  
+//   .btn-5:hover {
+//     border: 1px solid;
+//     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+//     outline-color: rgba(255, 255, 255, 0);
+//     outline-offset: 15px;
+//     text-shadow: 1px 1px 2px #427388; 
+//   }
+
+
+/*MAIN PAGE*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+
+    width: 80%;
+
+    padding: 30px 0 50px;
+
+    background-color: variables.$white;
+    box-shadow: variables.$box-shadow 4px 4px 4px 0;
+
+    transform: translateY(-120px);
+    transition: 2s ease;
+
+    cursor: pointer;
+}
+
+header:hover {
+    transform: translateY(0px);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px auto 100px;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        .container-card {
+            width: 400px;
+            height: 500px;
+
+            border-radius: 20px;
+
+            background-color: variables.$white;
+            box-shadow: variables.$box-shadow 4px 4px 4px 0;
+
+            transition: 2s;
+        }
+
+        .container-card:hover {
+            transform: rotate(5deg);
+        }
+
+        .container-button {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: space-between;
+
+            width: 100%;
+        }
+    }
+
+}
