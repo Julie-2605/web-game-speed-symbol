@@ -131,6 +131,15 @@ main section .section-game .container-button {
   justify-content: space-between;
   width: 100%;
 }
+main section .section-game .score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(65, 53, 53, 0.06);
+  border-radius: 15px;
+}
 
 .animate-pass {
   animation: pass 0.25s ease-in-out;

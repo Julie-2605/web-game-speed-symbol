@@ -14,19 +14,23 @@ let pathImg = './asset/img/';
 let currentCard;
 let previousCard;
 
+let containerScore;
 let score = 0;
 
+//PRÉPARATION DU DOM ET DES VARIABLES UTILES
 document.addEventListener('DOMContentLoaded', () => {
     containerCard = document.querySelector('.container-card');
     imgCard = document.querySelector('#img-card');
     containerResponse = document.querySelector('.response-status');
     iconResponse = document.querySelector('.response-status i');
+    containerScore = document.querySelector('.score p');
     secondColor = getComputedStyle(document.documentElement).getPropertyValue('--second-color');
     redColor = getComputedStyle(document.documentElement).getPropertyValue('--red-color');
 
     afficherCard();
 });
 
+//AFFICHER LES CARDS
 function afficherCard() {
     let numberRandom = Math.floor(Math.random() * 3);
 
@@ -98,6 +102,7 @@ function afficherCard() {
 //     }, {once: true});
 // };
 
+//VÉRIFICATION DE LA RÉPONSE DU USER
 function verificationCard(userAnswer) {
     let sameCard = currentCard === previousCard;
 
@@ -112,6 +117,7 @@ function verificationCard(userAnswer) {
     animatedCard();
 }
 
+//Affichage de l'icon du status de la réponse
 function displayIconResponse(boolean) {
     if(boolean === true) {
         iconResponse.className = 'fas fa-check';
@@ -131,6 +137,7 @@ function displayIconResponse(boolean) {
     }, {once: true});
 }
 
+//Animation des cards
 function animatedCard() {
     containerCard.classList.remove('animate-pass');
     void containerCard.offsetWidth;
@@ -146,12 +153,17 @@ function scoreCount(boolean) {
     if(boolean === true) {
         score += 10;
         
-        console.log('Voici ton score : ' + score);
+        displayScore(score);
     } else if(boolean === false) {
         score += 0;
 
-        console.log('Voici ton score : ' + score);
+        displayScore(score);
     }
+}
+
+function displayScore(score) {
+    containerScore.innerHTML = '';
+    containerScore.innerHTML = score + ' pts';
 }
 
 //CONFIGURATION DES TOUCHES
