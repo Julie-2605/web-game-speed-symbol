@@ -12,6 +12,11 @@
     text-decoration: none;
 }
 
+:root {
+    --second-color: #80c5af;
+    --red-color: #c97e7e;
+}
+
 /*FONT*/
 body {
     font-size: 25px;
@@ -95,6 +100,30 @@ main {
         gap: 30px;
 
         .section-game {
+            position: relative;
+
+            .response-status {
+                display: none;
+                justify-content: center;
+                align-items: center;
+
+                position: absolute;
+                top: 50px;
+                z-index: 1;
+
+                width: 50px;
+                height: 50px;
+                background-color: variables.$main-color;
+
+                border-radius: 100%;
+                border: 2px solid variables.$white;
+                box-shadow: variables.$box-shadow 4px 4px 4px 0;
+
+                i {
+                    color: white;
+                }
+            }
+
             .container-card {
                 position: relative;
                 display: flex;
@@ -137,6 +166,10 @@ main {
     animation: pass 0.3s ease-in-out;
 }
 
+.animate-response {
+    animation: response 0.4s ease-in-out;
+}
+
 @keyframes pass {
     from {
         opacity: 1;
@@ -145,5 +178,25 @@ main {
     to {
         opacity: 0;
         transform: translateX(-110px);
+    }
+}
+
+@keyframes response {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    70% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
