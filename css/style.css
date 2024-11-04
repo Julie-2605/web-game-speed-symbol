@@ -105,4 +105,18 @@ main section .section-game .container-button {
   gap: 20px;
   justify-content: space-between;
   width: 100%;
+}
+
+.animate-pass {
+  animation: pass 0.3s ease-in-out;
+}
+
+@keyframes pass {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-110px);
+  }
 }/*# sourceMappingURL=style.css.map */
