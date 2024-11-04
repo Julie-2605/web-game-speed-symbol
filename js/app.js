@@ -14,6 +14,8 @@ let pathImg = './asset/img/';
 let currentCard;
 let previousCard;
 
+let score = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     containerCard = document.querySelector('.container-card');
     imgCard = document.querySelector('#img-card');
@@ -44,56 +46,113 @@ function afficherCard() {
     // console.log('Current Card : ' + currentCard);
 }
 
-function verificationCard(userAnswer) {
+//ANCIENNE VERSION
+// function verificationCard(userAnswer) {
 
+//     let sameCard = currentCard === previousCard;
+
+//     if(userAnswer === sameCard ) {
+//         // console.log('Bonne réponse !');
+
+//         //Icon Font Awesome = V
+//         iconResponse.className = '';
+//         iconResponse.className = 'fas fa-check';
+
+//        //Affichage de l'icon + color + animation
+//         containerResponse.style.display = 'flex';
+//         containerResponse.style.backgroundColor = secondColor;
+//         containerResponse.classList.add('animate-response');
+
+//         //Attendre que l'animation se finisse
+//         containerResponse.addEventListener('animationend', () => {
+//             containerResponse.style.display = 'none';
+//             containerResponse.classList.remove('animate-response');
+//         }, {once: true});
+//     } else {
+//         // console.log('Mauvaise réponse.');
+
+//         //Icon Font Awesome = X
+//         iconResponse.className = '';
+//         iconResponse.className = 'fa-solid fa-xmark';
+
+//         //Affichage de l'icon + color + animation
+//         containerResponse.style.display = 'flex';
+//         containerResponse.style.backgroundColor = redColor;
+//         containerResponse.classList.add('animate-response');
+
+//         //Attendre que l'animation se finisse
+//         containerResponse.addEventListener('animationend', () => {
+//             containerResponse.style.display = 'none';
+//             containerResponse.classList.remove('animate-response');
+//         }, {once: true});
+//     }
+
+//     //Animation des card
+//     containerCard.classList.remove('animate-pass');
+//     void containerCard.offsetWidth;
+//     containerCard.classList.add('animate-pass');
+
+//     //Attendre que l'animation se finisse
+//     containerCard.addEventListener('animationend', () => {
+//         afficherCard();
+//     }, {once: true});
+// };
+
+function verificationCard(userAnswer) {
     let sameCard = currentCard === previousCard;
 
-    if(userAnswer === sameCard ) {
-        // console.log('Bonne réponse !');
-
-        //Icon Font Awesome = V
-        iconResponse.className = '';
-        iconResponse.className = 'fas fa-check';
-
-       //Affichage de l'icon + color + animation
-        containerResponse.style.display = 'flex';
-        containerResponse.style.backgroundColor = secondColor;
-        containerResponse.classList.add('animate-response');
-
-        //Attendre que l'animation se finisse
-        containerResponse.addEventListener('animationend', () => {
-            containerResponse.style.display = 'none';
-            containerResponse.classList.remove('animate-response');
-        }, {once: true});
+    if(userAnswer === sameCard) {
+        displayIconResponse(true);
+        scoreCount(true);
     } else {
-        // console.log('Mauvaise réponse.');
-
-        //Icon Font Awesome = X
-        iconResponse.className = '';
-        iconResponse.className = 'fa-solid fa-xmark';
-
-        //Affichage de l'icon + color + animation
-        containerResponse.style.display = 'flex';
-        containerResponse.style.backgroundColor = redColor;
-        containerResponse.classList.add('animate-response');
-
-        //Attendre que l'animation se finisse
-        containerResponse.addEventListener('animationend', () => {
-            containerResponse.style.display = 'none';
-            containerResponse.classList.remove('animate-response');
-        }, {once: true});
+        displayIconResponse(false);
+        scoreCount(false);
     }
 
-    //Animation des card
+    animatedCard();
+}
+
+function displayIconResponse(boolean) {
+    if(boolean === true) {
+        iconResponse.className = 'fas fa-check';
+        containerResponse.style.display = 'flex';
+        containerResponse.style.backgroundColor = secondColor;
+    } else if(boolean === false) {
+        iconResponse.className = 'fa-solid fa-xmark';
+        containerResponse.style.display = 'flex';
+        containerResponse.style.backgroundColor = redColor;
+    }
+
+    containerResponse.classList.add('animate-response');
+
+    containerResponse.addEventListener('animationend', () => {
+        containerResponse.style.display = 'none';
+        containerResponse.classList.remove('animate-response');
+    }, {once: true});
+}
+
+function animatedCard() {
     containerCard.classList.remove('animate-pass');
     void containerCard.offsetWidth;
     containerCard.classList.add('animate-pass');
 
-    //Attendre que l'animation se finisse
     containerCard.addEventListener('animationend', () => {
         afficherCard();
     }, {once: true});
-};
+}
+
+//SYSTÈME DE POINTS
+function scoreCount(boolean) {
+    if(boolean === true) {
+        score += 10;
+        
+        console.log('Voici ton score : ' + score);
+    } else if(boolean === false) {
+        score += 0;
+
+        console.log('Voici ton score : ' + score);
+    }
+}
 
 //CONFIGURATION DES TOUCHES
 document.addEventListener('keypress', (event) => {
@@ -103,6 +162,7 @@ document.addEventListener('keypress', (event) => {
         verificationCard(false);
     }
 });
+
 
 //Config des touches pour aller plus vite
 
