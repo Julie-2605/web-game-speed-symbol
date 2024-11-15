@@ -175,7 +175,5 @@ document.addEventListener('keypress', (event) => {
     }
 });
 
-
-//Config des touches pour aller plus vite
-
-//Système de score.
+//Créer des mod classique / hard, pour diminuer le score lors d'une mauvaise réponse.
+//Créer également des bonus de points lors d'un enchaînement de 10 bonnes réponses.
