@@ -50,58 +50,6 @@ function afficherCard() {
     // console.log('Current Card : ' + currentCard);
 }
 
-//ANCIENNE VERSION
-// function verificationCard(userAnswer) {
-
-//     let sameCard = currentCard === previousCard;
-
-//     if(userAnswer === sameCard ) {
-//         // console.log('Bonne réponse !');
-
-//         //Icon Font Awesome = V
-//         iconResponse.className = '';
-//         iconResponse.className = 'fas fa-check';
-
-//        //Affichage de l'icon + color + animation
-//         containerResponse.style.display = 'flex';
-//         containerResponse.style.backgroundColor = secondColor;
-//         containerResponse.classList.add('animate-response');
-
-//         //Attendre que l'animation se finisse
-//         containerResponse.addEventListener('animationend', () => {
-//             containerResponse.style.display = 'none';
-//             containerResponse.classList.remove('animate-response');
-//         }, {once: true});
-//     } else {
-//         // console.log('Mauvaise réponse.');
-
-//         //Icon Font Awesome = X
-//         iconResponse.className = '';
-//         iconResponse.className = 'fa-solid fa-xmark';
-
-//         //Affichage de l'icon + color + animation
-//         containerResponse.style.display = 'flex';
-//         containerResponse.style.backgroundColor = redColor;
-//         containerResponse.classList.add('animate-response');
-
-//         //Attendre que l'animation se finisse
-//         containerResponse.addEventListener('animationend', () => {
-//             containerResponse.style.display = 'none';
-//             containerResponse.classList.remove('animate-response');
-//         }, {once: true});
-//     }
-
-//     //Animation des card
-//     containerCard.classList.remove('animate-pass');
-//     void containerCard.offsetWidth;
-//     containerCard.classList.add('animate-pass');
-
-//     //Attendre que l'animation se finisse
-//     containerCard.addEventListener('animationend', () => {
-//         afficherCard();
-//     }, {once: true});
-// };
-
 //VÉRIFICATION DE LA RÉPONSE DU USER
 function verificationCard(userAnswer) {
     let sameCard = currentCard === previousCard;
