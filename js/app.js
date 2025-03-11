@@ -1,6 +1,11 @@
+
 //APP
 //VARIABLES UTILES
+let sectionGame;
+
 let cards = ["card1", "card2", "card3"];
+let pathImg = './asset/img/';
+
 let imgCard;
 let containerCard;
 
@@ -10,7 +15,7 @@ let iconResponse;
 let secondColor;
 let redColor;
 
-let pathImg = './asset/img/';
+
 let currentCard;
 let previousCard;
 
@@ -19,6 +24,7 @@ let score = 0;
 
 //PRÉPARATION DU DOM ET DES VARIABLES UTILES
 document.addEventListener('DOMContentLoaded', () => {
+    sectionGame = document.querySelector('.section-game')
     containerCard = document.querySelector('.container-card');
     imgCard = document.querySelector('#img-card');
     containerResponse = document.querySelector('.response-status');
@@ -27,8 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
     secondColor = getComputedStyle(document.documentElement).getPropertyValue('--second-color');
     redColor = getComputedStyle(document.documentElement).getPropertyValue('--red-color');
 
-    afficherCard();
+    preloadImg();
 });
+
+function preloadImg() {
+    cards.forEach(card => {
+        let img = new Image();
+        img.src = pathImg + card + '.jpg';
+    })
+}
+
+function start() {
+    sectionGame.style.display = 'flex';
+
+    afficherCard();
+
+    setTimeout(()=> {
+        animatedCard();
+    }, 1500);
+}
 
 //AFFICHER LES CARDS
 function afficherCard() {

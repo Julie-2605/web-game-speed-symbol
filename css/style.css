@@ -51,7 +51,29 @@ button:hover {
   background-color: #80c5af;
 }
 
+#start-button {
+  width: 200px;
+}
+
 /*MAIN PAGE*/
+#indication {
+  position: absolute;
+  top: 160px;
+  right: 200px;
+}
+#indication img {
+  width: 100px;
+  transform: rotate(-40deg);
+}
+
+#header-amelioration {
+  transform: translateY(-170px);
+}
+
+#header-amelioration:hover {
+  transform: translateY(0px);
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -86,6 +108,7 @@ main section {
   gap: 30px;
 }
 main section .section-game {
+  display: none;
   position: relative;
 }
 main section .section-game .response-status {

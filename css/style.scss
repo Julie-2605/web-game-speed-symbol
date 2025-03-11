@@ -58,8 +58,30 @@ button:hover {
     background-color: variables.$main-color-dark;
 }
 
+#start-button {
+    width: 200px;
+}
 
 /*MAIN PAGE*/
+#indication {
+    position: absolute;
+    top: 160px;
+    right: 200px;
+
+    img {
+        width: 100px;
+        transform: rotate(-40deg);
+    }
+}
+
+#header-amelioration {
+    transform: translateY(-170px);
+}
+
+#header-amelioration:hover {
+    transform: translateY(0px);
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -100,6 +122,7 @@ main {
         gap: 30px;
 
         .section-game {
+            display: none;
             position: relative;
 
             .response-status {
